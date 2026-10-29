@@ -1,43 +1,44 @@
 
 import './App.css'
 
+
 const projects = [
   {
     number: '01',
     name: 'FleetPesa',
     type: 'Fleet Management & Payments',
     description:
-      'A fleet management platform designed to help owners track driver remittances, vehicle assignments and outstanding payments.',
+      'A team project focused on helping fleet owners track driver remittances, vehicle assignments and outstanding payments.',
     technologies: ['React', 'Flask', 'SQLAlchemy'],
     status: 'Team Project',
+    icon: '↗',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
     number: '02',
     name: 'Weather Alerts',
     type: 'Weather Information',
     description:
-      'A web application project focused on presenting weather information and alerts using external data sources.',
+      'A web application project focused on displaying weather information and alerts using external data sources.',
     technologies: ['JavaScript', 'API Integration'],
     status: 'Web Application',
+    icon: '☼',
+    githubUrl: '',
+    liveUrl: '',
   },
   {
-    number: '03',
-    name: 'OpenFoodFacts Inventory',
-    type: 'Inventory Management',
-    description:
-      'An inventory project exploring product data, stock management and application workflows.',
-    technologies: ['Python', 'Data Handling'],
-    status: 'Web Application',
-  },
-  {
-    number: '04',
-    name: 'MovieZone',
-    type: 'Movie Discovery',
-    description:
-      'A movie-focused application project showcasing frontend development and interactive user experiences.',
-    technologies: ['JavaScript', 'Frontend'],
-    status: 'Web Application',
-  },
+  number: '03',
+  name: 'MovieZone',
+  type: 'Movie Discovery',
+  description:
+    'A movie-focused application project showcasing frontend development and interactive user experiences.',
+  technologies: ['JavaScript', 'Frontend'],
+  status: 'Web Application',
+  icon: '▶',
+  githubUrl: 'https://github.com/ngashisaya001-creator/movieWatchlist',
+  liveUrl: '',
+},
 ]
 
 function App() {
@@ -82,14 +83,42 @@ function App() {
               problems through technology.
             </p>
 
+            
             <div className="hero-actions">
-              <a className="primary-button" href="#projects">
-                Explore my work <span>↘</span>
+              <a
+                className="primary-button"
+                href="mailto:gabrielmutavi4@gmail.com"
+              >
+                 Email me ↗
               </a>
-              <a className="secondary-button" href="#contact">
-                Get in touch
+
+              <a
+                 className="secondary-button"
+                 href="https://www.linkedin.com/in/gabriel-mutavi/"
+                 target="_blank"
+                 rel="noreferrer"
+              >
+                 LinkedIn ↗
+              </a>
+
+              <a
+                 className="secondary-button"
+                 href="https://github.com/gabrielmutavi4"
+                 target="_blank"
+                 rel="noreferrer"
+              >
+                  GitHub ↗
+              </a>
+
+              <a
+                className="secondary-button"
+                href="/CV.pdf"
+                download="Gabriel-Mutavi-CV.pdf"
+              >
+                Download CV ↓
               </a>
             </div>
+
 
             <div className="hero-meta">
               <span>BASED IN KENYA 🇰🇪</span>
@@ -151,16 +180,13 @@ function App() {
             {projects.map((project) => (
               <article className="project-card" key={project.number}>
                 <div className="project-top">
-                  <span className="project-number">{project.number} / 04</span>
+                  <span className="project-number">
+                    {project.number} / {String(projects.length).padStart(2, '0')}
+                  </span>
                   <span className="project-status">{project.status}</span>
                 </div>
 
-                <div className="project-icon">
-                  {project.number === '01' && '↗'}
-                  {project.number === '02' && '☼'}
-                  {project.number === '03' && '▤'}
-                  {project.number === '04' && '▶'}
-                </div>
+                <div className="project-icon">{project.icon}</div>
 
                 <span className="project-type">{project.type}</span>
                 <h3>{project.name}</h3>
@@ -172,10 +198,33 @@ function App() {
                   ))}
                 </div>
 
+                
                 <div className="project-links">
-                  <span>Project details</span>
-                  <span aria-hidden="true">↗</span>
-                </div>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Source code ↗
+                    </a>
+                  )}
+
+                 {project.liveUrl && (
+                   <a
+                     href={project.liveUrl}
+                     target="_blank"
+                     rel="noreferrer"
+                   >
+                     Live demo ↗
+                   </a>
+                   )}
+
+                   {!project.githubUrl && !project.liveUrl && (
+                     <span>Links coming soon</span>
+                   )}
+                 </div>
+
               </article>
             ))}
           </div>

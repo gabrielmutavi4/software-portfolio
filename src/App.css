@@ -453,6 +453,19 @@ footer a:hover {
   color: #c3baff;
 }
 
+
+.project-links a {
+  color: #c3baff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
 .project-note {
   margin-top: 22px;
   color: #858da0;
